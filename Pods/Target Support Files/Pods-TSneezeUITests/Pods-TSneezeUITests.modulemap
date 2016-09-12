@@ -1,0 +1,6 @@
+framework module Pods_TSneezeUITests {
+  umbrella header "Pods-TSneezeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

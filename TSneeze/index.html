@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <!--Squeeze the chart down to avoid clipping with top elements-->
+        <style type="text/css">
+            body {
+                padding-top: 40px;
+            }
+        </style>
+        <title>T-SNE Demo</title>
+        <meta charset="UTF-8">
+
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                                                                  ['X', 'Y'],
+                                                                  [ 8,      12],
+                                                                  [ 4,      5.5],
+                                                                  [ 11,     14],
+                                                                  [ 4,      5],
+                                                                  [ 3,      3.5],
+                                                                  [ 6.5,    7]
+                                                                  ]);
+                                                                  
+                                                                  var options = {
+                                                                      title: 'TSNE ',
+                                                                      hAxis: {title: 'X', minValue: -50, maxValue: 50},
+                                                                      vAxis: {title: 'Y', minValue: -50, maxValue: 50},
+                                                                      legend: 'none'
+                                                                  };
+                                                                  
+                                                                  var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+                                                                  
+                                                                  chart.draw(data, options);
+            }
+        drawChart();
+        // Communicate with the native app.
+        function callNativeApp (string) {
+            var message = {'message' : string}
+            try {
+                webkit.messageHandlers.callbackHandler.postMessage(message);
+            } catch(err) {
+                console.log('The native context does not exist yet');
+            }
+        }
+    
+        // Native App Communicates with me.
+        // the data from T-SNE is an array of arrays, but is passed in as a string
+        function convertStringInputToData(stringInput) {
+            var data = [];
+            var stringData = stringInput.slice(1,stringInput.length-1).split('],');
+            // skipping the first and last characters,
+            // walk through the stringified matrix and make a matrix in JS
+
+            for(var x = 0; x < stringData.length; x++) {
+                var tempArray = stringData[x].slice(1, stringData[x].length-1).split(',');
+                callNativeApp(JSON.stringify(tempArray));
+                var numberArray = [];
+                tempArray.forEach(function (number) {
+                  if(!isNaN(Number(number))) {
+                      numberArray.push(Number(number))
+                  }
+                });
+              data.push(numberArray);
+            }
+            callNativeApp(JSON.stringify(data));
+        };
+
+        // ready the chart for animation
+        // Start the animation by listening to the first 'ready' event.
+
+        function drawUpdate(input) {
+            callNativeApp('calling convert string');
+            convertStringInputToData(input);
+        };
+        
+
+
+        </script>
+    </head>
+    
+    <body>
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div"></div>
+    </body>
+</html>

@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36689A22842EB690D710F2C4 /* Pods_TSneeze.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BEAAD2D27F43103DE656A6 /* Pods_TSneeze.framework */; };
+		7E258D816CDBF70EFB12F2B3 /* Pods_TSneezeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 051E9351DBFA5CBFAF4A848A /* Pods_TSneezeUITests.framework */; };
+		FA17BB9D1D11F00900727163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17BB9C1D11F00900727163 /* AppDelegate.swift */; };
+		FA17BBA21D11F00900727163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA17BBA01D11F00900727163 /* Main.storyboard */; };
+		FA17BBA41D11F00900727163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA17BBA31D11F00900727163 /* Assets.xcassets */; };
+		FA17BBA71D11F00900727163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA17BBA51D11F00900727163 /* LaunchScreen.storyboard */; };
+		FA17BBB21D11F00900727163 /* TSneezeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17BBB11D11F00900727163 /* TSneezeUITests.swift */; };
+		FA2195041D1219B3009D6234 /* CSVScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2195031D1219B3009D6234 /* CSVScanner.swift */; };
+		FA2A79AC1D1DF77700C95A2E /* pendigits_images.csv in Resources */ = {isa = PBXBuildFile; fileRef = FA2A79AB1D1DF77700C95A2E /* pendigits_images.csv */; };
+		FA5717131D14848C00EA1216 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5717121D14848C00EA1216 /* DataPoint.swift */; };
+		FA5717151D14927000EA1216 /* SimilarityComparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5717141D14927000EA1216 /* SimilarityComparable.swift */; };
+		FA5717171D14995200EA1216 /* handwriting_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = FA5717161D14995200EA1216 /* handwriting_data.csv */; };
+		FA5717191D1871A900EA1216 /* TSNE.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5717181D1871A900EA1216 /* TSNE.swift */; };
+		FA60875B1D1C5B3400797FE3 /* HighDimensionalSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60875A1D1C5B3400797FE3 /* HighDimensionalSet.swift */; };
+		FA60875F1D1C6EC000797FE3 /* ImageDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60875E1D1C6EC000797FE3 /* ImageDataPoint.swift */; };
+		FAA9EB1A1D2DA08D00169C49 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = FAA9EB191D2DA08D00169C49 /* index.html */; };
+		FAB9E0C21D1211A200A3268C /* pendigits.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAB9E0C11D1211A200A3268C /* pendigits.csv */; };
+		FAB9E0C41D1212BA00A3268C /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0C31D1212BA00A3268C /* ChartViewController.swift */; };
+		FAB9E0C61D12176B00A3268C /* DataDigester.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9E0C51D12176B00A3268C /* DataDigester.swift */; };
+		FADC18F91D21CBFF00DAFF6B /* pendigits_images_reduced.csv in Resources */ = {isa = PBXBuildFile; fileRef = FADC18F81D21CBFF00DAFF6B /* pendigits_images_reduced.csv */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA17BBAE1D11F00900727163 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA17BB911D11F00900727163 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA17BB981D11F00900727163;
+			remoteInfo = TSneeze;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		051E9351DBFA5CBFAF4A848A /* Pods_TSneezeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSneezeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56BEAAD2D27F43103DE656A6 /* Pods_TSneeze.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSneeze.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70F5B34E293EAEFBB0CAD18A /* Pods-TSneeze.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSneeze.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSneeze/Pods-TSneeze.release.xcconfig"; sourceTree = "<group>"; };
+		77A2400E989B013CCB08CAAF /* Pods-TSneezeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSneezeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TSneezeUITests/Pods-TSneezeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B152227D04AAB5C75E56F72F /* Pods-TSneeze.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSneeze.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSneeze/Pods-TSneeze.debug.xcconfig"; sourceTree = "<group>"; };
+		E23AD19E29E883E52C84B481 /* Pods-TSneezeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TSneezeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TSneezeUITests/Pods-TSneezeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA17BB991D11F00900727163 /* TSneeze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TSneeze.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA17BB9C1D11F00900727163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA17BBA11D11F00900727163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA17BBA31D11F00900727163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA17BBA61D11F00900727163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA17BBA81D11F00900727163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA17BBAD1D11F00900727163 /* TSneezeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSneezeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA17BBB11D11F00900727163 /* TSneezeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSneezeUITests.swift; sourceTree = "<group>"; };
+		FA17BBB31D11F00900727163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2195031D1219B3009D6234 /* CSVScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVScanner.swift; sourceTree = "<group>"; };
+		FA2A79AB1D1DF77700C95A2E /* pendigits_images.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pendigits_images.csv; sourceTree = "<group>"; };
+		FA5717121D14848C00EA1216 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
+		FA5717141D14927000EA1216 /* SimilarityComparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarityComparable.swift; sourceTree = "<group>"; };
+		FA5717161D14995200EA1216 /* handwriting_data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = handwriting_data.csv; sourceTree = "<group>"; };
+		FA5717181D1871A900EA1216 /* TSNE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNE.swift; sourceTree = "<group>"; };
+		FA60875A1D1C5B3400797FE3 /* HighDimensionalSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighDimensionalSet.swift; sourceTree = "<group>"; };
+		FA60875E1D1C6EC000797FE3 /* ImageDataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDataPoint.swift; path = ../ImageDataPoint.swift; sourceTree = "<group>"; };
+		FAA9EB191D2DA08D00169C49 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		FAB9E0C11D1211A200A3268C /* pendigits.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pendigits.csv; sourceTree = "<group>"; };
+		FAB9E0C31D1212BA00A3268C /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		FAB9E0C51D12176B00A3268C /* DataDigester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataDigester.swift; sourceTree = "<group>"; };
+		FADC18F81D21CBFF00DAFF6B /* pendigits_images_reduced.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pendigits_images_reduced.csv; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA17BB961D11F00900727163 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36689A22842EB690D710F2C4 /* Pods_TSneeze.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA17BBAA1D11F00900727163 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E258D816CDBF70EFB12F2B3 /* Pods_TSneezeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C3709DECDB8E57EAFA91C46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56BEAAD2D27F43103DE656A6 /* Pods_TSneeze.framework */,
+				051E9351DBFA5CBFAF4A848A /* Pods_TSneezeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A36399370D81C1C1AA003170 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B152227D04AAB5C75E56F72F /* Pods-TSneeze.debug.xcconfig */,
+				70F5B34E293EAEFBB0CAD18A /* Pods-TSneeze.release.xcconfig */,
+				E23AD19E29E883E52C84B481 /* Pods-TSneezeUITests.debug.xcconfig */,
+				77A2400E989B013CCB08CAAF /* Pods-TSneezeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA17BB901D11F00900727163 = {
+			isa = PBXGroup;
+			children = (
+				FA17BB9B1D11F00900727163 /* TSneeze */,
+				FA17BBB01D11F00900727163 /* TSneezeUITests */,
+				FA17BB9A1D11F00900727163 /* Products */,
+				A36399370D81C1C1AA003170 /* Pods */,
+				4C3709DECDB8E57EAFA91C46 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA17BB9A1D11F00900727163 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA17BB991D11F00900727163 /* TSneeze.app */,
+				FA17BBAD1D11F00900727163 /* TSneezeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA17BB9B1D11F00900727163 /* TSneeze */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9EB151D2D97E400169C49 /* Chart */,
+				FA17BBC01D11FDAE00727163 /* Data */,
+				FA17BB9C1D11F00900727163 /* AppDelegate.swift */,
+				FA17BBA01D11F00900727163 /* Main.storyboard */,
+				FA17BBA31D11F00900727163 /* Assets.xcassets */,
+				FA17BBA51D11F00900727163 /* LaunchScreen.storyboard */,
+				FA17BBA81D11F00900727163 /* Info.plist */,
+				FAB9E0C31D1212BA00A3268C /* ChartViewController.swift */,
+				FA5717181D1871A900EA1216 /* TSNE.swift */,
+				FAB9E0C51D12176B00A3268C /* DataDigester.swift */,
+				FA60875E1D1C6EC000797FE3 /* ImageDataPoint.swift */,
+				FA2195031D1219B3009D6234 /* CSVScanner.swift */,
+				FA5717121D14848C00EA1216 /* DataPoint.swift */,
+				FA5717141D14927000EA1216 /* SimilarityComparable.swift */,
+				FA60875A1D1C5B3400797FE3 /* HighDimensionalSet.swift */,
+			);
+			path = TSneeze;
+			sourceTree = "<group>";
+		};
+		FA17BBB01D11F00900727163 /* TSneezeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA17BBB11D11F00900727163 /* TSneezeUITests.swift */,
+				FA17BBB31D11F00900727163 /* Info.plist */,
+			);
+			path = TSneezeUITests;
+			sourceTree = "<group>";
+		};
+		FA17BBC01D11FDAE00727163 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA5717161D14995200EA1216 /* handwriting_data.csv */,
+				FADC18F81D21CBFF00DAFF6B /* pendigits_images_reduced.csv */,
+				FA2A79AB1D1DF77700C95A2E /* pendigits_images.csv */,
+				FAB9E0C11D1211A200A3268C /* pendigits.csv */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		FAA9EB151D2D97E400169C49 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9EB191D2DA08D00169C49 /* index.html */,
+			);
+			name = Chart;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA17BB981D11F00900727163 /* TSneeze */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA17BBB61D11F00900727163 /* Build configuration list for PBXNativeTarget "TSneeze" */;
+			buildPhases = (
+				1D11E80BC24771B67740E589 /* [CP] Check Pods Manifest.lock */,
+				FA17BB951D11F00900727163 /* Sources */,
+				FA17BB961D11F00900727163 /* Frameworks */,
+				FA17BB971D11F00900727163 /* Resources */,
+				D4F0D0F55230245BD6F08BB1 /* [CP] Embed Pods Frameworks */,
+				793B233BCAB5E5603A792BA4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSneeze;
+			productName = TSneeze;
+			productReference = FA17BB991D11F00900727163 /* TSneeze.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA17BBAC1D11F00900727163 /* TSneezeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA17BBB91D11F00900727163 /* Build configuration list for PBXNativeTarget "TSneezeUITests" */;
+			buildPhases = (
+				1DA2F0C86DFD8D7604AA0CDD /* [CP] Check Pods Manifest.lock */,
+				FA17BBA91D11F00900727163 /* Sources */,
+				FA17BBAA1D11F00900727163 /* Frameworks */,
+				FA17BBAB1D11F00900727163 /* Resources */,
+				EFC65C7B2545D50E6AF481D7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA17BBAF1D11F00900727163 /* PBXTargetDependency */,
+			);
+			name = TSneezeUITests;
+			productName = TSneezeUITests;
+			productReference = FA17BBAD1D11F00900727163 /* TSneezeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA17BB911D11F00900727163 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Brian Ledbetter";
+				TargetAttributes = {
+					FA17BB981D11F00900727163 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					FA17BBAC1D11F00900727163 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = FA17BB981D11F00900727163;
+					};
+				};
+			};
+			buildConfigurationList = FA17BB941D11F00900727163 /* Build configuration list for PBXProject "TSneeze" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA17BB901D11F00900727163;
+			productRefGroup = FA17BB9A1D11F00900727163 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA17BB981D11F00900727163 /* TSneeze */,
+				FA17BBAC1D11F00900727163 /* TSneezeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA17BB971D11F00900727163 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADC18F91D21CBFF00DAFF6B /* pendigits_images_reduced.csv in Resources */,
+				FA2A79AC1D1DF77700C95A2E /* pendigits_images.csv in Resources */,
+				FA5717171D14995200EA1216 /* handwriting_data.csv in Resources */,
+				FAA9EB1A1D2DA08D00169C49 /* index.html in Resources */,
+				FA17BBA71D11F00900727163 /* LaunchScreen.storyboard in Resources */,
+				FAB9E0C21D1211A200A3268C /* pendigits.csv in Resources */,
+				FA17BBA41D11F00900727163 /* Assets.xcassets in Resources */,
+				FA17BBA21D11F00900727163 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA17BBAB1D11F00900727163 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D11E80BC24771B67740E589 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1DA2F0C86DFD8D7604AA0CDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		793B233BCAB5E5603A792BA4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSneeze/Pods-TSneeze-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4F0D0F55230245BD6F08BB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSneeze/Pods-TSneeze-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFC65C7B2545D50E6AF481D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TSneezeUITests/Pods-TSneezeUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA17BB951D11F00900727163 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5717151D14927000EA1216 /* SimilarityComparable.swift in Sources */,
+				FA17BB9D1D11F00900727163 /* AppDelegate.swift in Sources */,
+				FA60875B1D1C5B3400797FE3 /* HighDimensionalSet.swift in Sources */,
+				FA2195041D1219B3009D6234 /* CSVScanner.swift in Sources */,
+				FA5717131D14848C00EA1216 /* DataPoint.swift in Sources */,
+				FA5717191D1871A900EA1216 /* TSNE.swift in Sources */,
+				FA60875F1D1C6EC000797FE3 /* ImageDataPoint.swift in Sources */,
+				FAB9E0C61D12176B00A3268C /* DataDigester.swift in Sources */,
+				FAB9E0C41D1212BA00A3268C /* ChartViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA17BBA91D11F00900727163 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA17BBB21D11F00900727163 /* TSneezeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA17BBAF1D11F00900727163 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA17BB981D11F00900727163 /* TSneeze */;
+			targetProxy = FA17BBAE1D11F00900727163 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA17BBA01D11F00900727163 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA17BBA11D11F00900727163 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA17BBA51D11F00900727163 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA17BBA61D11F00900727163 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA17BBB41D11F00900727163 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA17BBB51D11F00900727163 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA17BBB71D11F00900727163 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B152227D04AAB5C75E56F72F /* Pods-TSneeze.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TSneeze/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianledbetter.bled.TSneeze;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FA17BBB81D11F00900727163 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70F5B34E293EAEFBB0CAD18A /* Pods-TSneeze.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TSneeze/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianledbetter.bled.TSneeze;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FA17BBBA1D11F00900727163 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E23AD19E29E883E52C84B481 /* Pods-TSneezeUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = TSneezeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianledbetter.bled.TSneezeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TSneeze;
+			};
+			name = Debug;
+		};
+		FA17BBBB1D11F00900727163 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A2400E989B013CCB08CAAF /* Pods-TSneezeUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = TSneezeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brianledbetter.bled.TSneezeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TSneeze;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA17BB941D11F00900727163 /* Build configuration list for PBXProject "TSneeze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA17BBB41D11F00900727163 /* Debug */,
+				FA17BBB51D11F00900727163 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA17BBB61D11F00900727163 /* Build configuration list for PBXNativeTarget "TSneeze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA17BBB71D11F00900727163 /* Debug */,
+				FA17BBB81D11F00900727163 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA17BBB91D11F00900727163 /* Build configuration list for PBXNativeTarget "TSneezeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA17BBBA1D11F00900727163 /* Debug */,
+				FA17BBBB1D11F00900727163 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA17BB911D11F00900727163 /* Project object */;
+}

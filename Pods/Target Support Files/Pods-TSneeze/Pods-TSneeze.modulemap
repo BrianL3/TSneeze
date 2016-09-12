@@ -1,0 +1,6 @@
+framework module Pods_TSneeze {
+  umbrella header "Pods-TSneeze-umbrella.h"
+
+  export *
+  module * { export * }
+}
