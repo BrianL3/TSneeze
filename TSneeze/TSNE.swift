@@ -68,7 +68,7 @@ class TSNE{
      is about 500.
      Data input: An N by N matrix of values.  This matrix is the similarity matrix, it shows how close each data point d is to every other data point in the high-dimensional set.   
     */
-    func step(stepNumber : Int, stepTotal: Int) -> Double? {
+    func step(_ stepNumber : Int, stepTotal: Int) -> Double? {
         guard let cg = costGradient(self.Y!) else { debug("Failed to step because of failed cost gradient."); return nil }
         let cost = cg.0
         let grad = cg.1
@@ -109,7 +109,7 @@ class TSNE{
     /*
      MARK: GET SOLUTION
      */
-    func getSolution(steps: Int, plotData: ([[Double]]?) ->()) {
+    func getSolution(_ steps: Int, plotData: ([[Double]]?) ->()) {
         
         for x in 0 ..< steps {
             step(x, stepTotal: steps)
@@ -123,7 +123,7 @@ class TSNE{
     }
     
     // Get solution iteratively (when the user wants to see each step.)
-    func iterateSolution(plotData: ([[Double]]) -> ()) {
+    func iterateSolution(_ plotData: ([[Double]]) -> ()) {
         step(1, stepTotal: 1)
         
         var coordinates = [[Double]]()
@@ -170,7 +170,7 @@ class TSNE{
     /*
      MARK: DEBUG (Make more useful later)
      */
-    func debug(errorText : String) {
+    func debug(_ errorText : String) {
         print(errorText)
     }
     
@@ -182,8 +182,8 @@ class TSNE{
         if let setRandom = cachedGaussRandom {
             return setRandom
         }
-        let u = 2 * rand()-1
-        let v = 2 * rand()-1
+        let u = 2 * arc4random()-1
+        let v = 2 * arc4random()-1
         let r = u*u + v*v
         if (r == 0 || r > 1) {
             return gaussRandom()
@@ -195,26 +195,26 @@ class TSNE{
     }
     
     // return random normal number
-    func randn(mu : Double, std : Double) -> Double {
+    func randn(_ mu : Double, std : Double) -> Double {
         return mu + (gaussRandom() * std)
     }
     
-    func sign(x : Double) -> Double {
+    func sign(_ x : Double) -> Double {
         return x > 0.0 ? 1.0 : x < 0.0 ? -1.0 : 0.0
     }
 
     
     // utility that creates contiguous vector of numbers(the fill value) of size n
-    func vectorArray(size : Int, fill: Double) -> [Double] {
-        return [Double](count: size, repeatedValue : fill)
+    func vectorArray(_ size : Int, fill: Double) -> [Double] {
+        return [Double](repeating: fill, count: size)
     }
     
     // utility that creates 2D array numbers(the fill value) of size n
-    func multiDVectorArray(size : Int, fill: Double, dimensions: Int) -> [[Double]] {
+    func multiDVectorArray(_ size : Int, fill: Double, dimensions: Int) -> [[Double]] {
         var arrayToReturn = [[Double]]()
         for _ in 0 ..< size {
             for _ in 0 ..< dimensions {
-                arrayToReturn.append([Double](count: size, repeatedValue : fill))
+                arrayToReturn.append([Double](repeating: fill, count: size))
             }
         }
         return arrayToReturn
@@ -222,12 +222,12 @@ class TSNE{
 
     
     // utility that returns an n-dimensioned array filled with random numbers, where n is the dimensionality of this t-sne.
-    func randomVectorArray(size : Int) -> [[Double]] {
+    func randomVectorArray(_ size : Int) -> [[Double]] {
         var randomArray = [[Double]]()
         for _ in 0 ..< size {
             var interiorArray = [Double]()
             for _ in 0 ..< self.dimensionality {
-                interiorArray.append(Double(rand()))
+                interiorArray.append(Double(arc4random()))
             }
             randomArray.append(interiorArray)
         }
@@ -235,7 +235,7 @@ class TSNE{
     }
     
     // compute L2 / euclidean linear distance between two vectors
-    func linearDistance(vector1 : [Double], vector2 : [Double]) -> Double {
+    func linearDistance(_ vector1 : [Double], vector2 : [Double]) -> Double {
         var distance = 0.0
         for i in 0..<vector1.count {
             distance += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i])
@@ -244,15 +244,15 @@ class TSNE{
     }
     
     
-    func x2D(X : HighDimensionalSet) -> ([Double], [Double]?) {
+    func x2D(_ X : HighDimensionalSet) -> ([Double], [Double]?) {
         return HighDimensionalSet.convertToDistancesVectors(X.comparables)
     }
     
-    func distancesVector2ProbabilityVector(distances : [Double], sigmas : [Double]?) -> [Double]? {
+    func distancesVector2ProbabilityVector(_ distances : [Double], sigmas : [Double]?) -> [Double]? {
         return d2p(distances, sigmas: sigmas)
     }
     // compute pairwise distance in all vectors in X
-    func convertToSimilarityMatrix(multiDimensionalDataAsVectors : [[Double]]) -> [Double] {
+    func convertToSimilarityMatrix(_ multiDimensionalDataAsVectors : [[Double]]) -> [Double] {
         var distanceVector = vectorArray((multiDimensionalDataAsVectors.count * multiDimensionalDataAsVectors.count), fill: 0.0)
         for i in 0 ..< multiDimensionalDataAsVectors.count {
             for j in i+1 ..< multiDimensionalDataAsVectors.count {
@@ -265,7 +265,7 @@ class TSNE{
     }
     
     //MARK: compute Distance vectors into probability vectors  (p_{i|j} + p_{j|i})/(2n)
-    func d2p(distances : [Double], sigmas : [Double]?) -> [Double]? {
+    func d2p(_ distances : [Double], sigmas : [Double]?) -> [Double]? {
         
         let nf = sqrt(Double(distances.count))
         print("Computing distances of length: \(distances.count) to P vector")
@@ -359,7 +359,7 @@ class TSNE{
         return Pout;
     }
     // return cost and gradient of a given arrangement as a tuple
-    func costGradient(Y : [[Double]]) -> (Double, [[Double]])? {
+    func costGradient(_ Y : [[Double]]) -> (Double, [[Double]])? {
         guard let N = self.N else { debug("Attempting to perform cost gradients without data."); return nil }
         guard let P = self.P else { debug("Attempting to perform cost gradients without data."); return nil }
         // a trick to help with local optima

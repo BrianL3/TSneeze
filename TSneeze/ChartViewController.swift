@@ -25,33 +25,30 @@ class ChartViewController: UIViewController, WKScriptMessageHandler {
         // Configuration: add all functions in the JS file that need a native endpoint.
         let config = WKWebViewConfiguration()
 //        config.userContentController.addUserScript(userScript)
-        config.userContentController.addScriptMessageHandler(self, name: "callbackHandler")
+        config.userContentController.add(self, name: "callbackHandler")
         
         // create the webview
-        self.webView = WKWebView(frame: UIScreen.mainScreen().bounds, configuration: config)
+        self.webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
         self.view.addSubview(self.webView!)
         webView!.translatesAutoresizingMaskIntoConstraints = false;
-//        webView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: ["webView": webView!]))
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions.AlignAllBaseline, metrics: nil, views: ["webView": webView!]))
-
+        webView?.autoresizingMask = [.flexibleWidth,.flexibleHeight]
+        self.view.backgroundColor = .yellow
 
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         // set up the web view
-        guard let bundlePath = NSBundle.mainBundle().pathForResource("index", ofType: "html") else { print("failed to create bundle path"); return; }
+        guard let bundlePath = Bundle.main.path(forResource: "index", ofType: "html") else { print("failed to create bundle path"); return; }
         print("Got bundle path: \(bundlePath)")
         guard let url = NSURL(string: bundlePath) else { print("failed to create URL with bundle of \(bundlePath)"); return; }
-        print("Got URL: \(url.absoluteString)")
+        print("Got URL: \(String(describing: url.absoluteString))")
 
         guard let data = NSData(contentsOfFile: bundlePath) else { print("Failed to create data."); return; }
-        self.webView!.loadData(data, MIMEType: "text/html", characterEncodingName: "UTF-8", baseURL: url)
+        self.webView!.load(data as Data, mimeType: "text/html", characterEncodingName: "UTF-8", baseURL: url as! URL)
         
         let input = [[1, 5], [9, 8]]
         let userScript = WKUserScript(
             source: "drawUpdate('\(input)');",
-            injectionTime: WKUserScriptInjectionTime.AtDocumentEnd,
+            injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
             forMainFrameOnly: true
         )
         
@@ -69,20 +66,20 @@ class ChartViewController: UIViewController, WKScriptMessageHandler {
 //            print("Error was \(error)")
 //        }
 //
-        //        CSVScanner.decodeImageMatricesFromFile("pendigits_images_reduced") { (returnedDataPoints) in
-//
-//            let imageTSNE = TSNE(learningRate: 30, perplexity: 50, dimensionality: 2, X: returnedDataPoints)
-//            
-//            print("Attempting to get solution")
-//            for x in 0 ..< 1000 {
-//                if (x % 300 == 0) { print("working... step \(x)") }
-//                imageTSNE.iterateSolution({ (plotData) in
-//                    // do stuff with the data call webView.evaluateJavascript
-//                })
-//            }
-//            print("complete")
-//        }
-
+            CSVScanner.decodeImageMatricesFromFile("pendigits_images_reduced") { (returnedDataPoints) in
+                    
+            let imageTSNE = TSNE(learningRate: 30, perplexity: 50, dimensionality: 2, X: returnedDataPoints)
+        
+            print("Attempting to get solution")
+            for x in 0 ..< 1000 {
+                if (x % 300 == 0) { print("working... step \(x)") }
+                imageTSNE.iterateSolution({ (plotData) in
+                    // do stuff with the data call webView.evaluateJavascript
+                })
+            }
+            print("complete")
+        }
+    
     }
     
     //update data
@@ -92,16 +89,16 @@ class ChartViewController: UIViewController, WKScriptMessageHandler {
 //        webView!.evaluateJavaScript("document.getElementById('anonymousFormSubmit').click();", nil)
         
         // Convert dictionary into encoded json
-        let serializedData = try! NSJSONSerialization.dataWithJSONObject(dictionaryData, options: .PrettyPrinted)
-        let encodedData = serializedData.base64EncodedStringWithOptions(.EncodingEndLineWithLineFeed)
+        let serializedData = try! JSONSerialization.data(withJSONObject: dictionaryData, options: .prettyPrinted)
+        let encodedData = serializedData.base64EncodedData(options:.endLineWithLineFeed )
         // This WKWebView API to calls 'reloadData' function defined in js
-        self.webView!.evaluateJavaScript("drawUpdate('\(encodedData)');") { (object: AnyObject?, error: NSError?) -> Void in
+        self.webView!.evaluateJavaScript("drawUpdate('\(encodedData)');") { (object: Any?, error: Error?) -> Void in
             print("completed with \(object), error was \(error)")
-        }
+            }
     }
 
     
-    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         let sentData = message.body as! NSDictionary
         
         print("Received Callback from JS with this info: \(sentData)")

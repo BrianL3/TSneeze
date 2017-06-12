@@ -26,9 +26,9 @@ struct HighDimensionalSet {
     
     // compute pairwise comparison in all vectors in the high dimensional data set (aka convert X to D)
     // this is sometimes called a similarity matrix (but we have the matrix in vector form)
-    static func convertToDistancesVectors(X : [SimilarityComparable]) -> ([Double], [Double]?) {
+    static func convertToDistancesVectors(_ X : [SimilarityComparable]) -> ([Double], [Double]?) {
         print("Started HighDimensionalSet class function for X size of \(X.count)")
-        var distanceVector = [Double](count: X.count * X.count, repeatedValue : 0.0)
+        var distanceVector = [Double](repeating: 0.0, count: X.count * X.count)
         var sigmas : [Double]?
         for i in 0 ..< X.count {
             for j in i+1 ..< X.count {
