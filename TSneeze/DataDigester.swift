@@ -20,7 +20,7 @@ class DataDigester {
     /*
      This will fill digitData an array of DataPoint objects, each representing a row from the CSV.
      */
-    func formatPendigitsData(pendigitsData: ([DataPoint]) ->()) {
+    func formatPendigitsData(_ pendigitsData: ([DataPoint]) ->()) {
         CSVScanner.decodeDataPointsFromFile(fileName: "pendigits") { (validDataPoints) in
             pendigitsData(validDataPoints)
         }

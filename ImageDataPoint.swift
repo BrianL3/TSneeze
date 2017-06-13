@@ -21,7 +21,7 @@ struct ImageDataPoint : SimilarityComparable {
     }
 
     
-    static func compare(first : SimilarityComparable, second: SimilarityComparable) -> (Double, Double?)? {
+    static func compare(_ first : SimilarityComparable, second: SimilarityComparable) -> (Double, Double?)? {
         if (first is ImageDataPoint && second is ImageDataPoint) {
             return ImageDataPoint.compareLinearDistance(first as! ImageDataPoint, second: second as! ImageDataPoint)
         } else {
@@ -30,12 +30,12 @@ struct ImageDataPoint : SimilarityComparable {
     }
     
     // returns L2 distance between the two high dimensional points, and an optional sigma value (not in yet)
-    static func compareLinearDistance(first : ImageDataPoint, second : ImageDataPoint) -> (Double, Double?)? {
+    static func compareLinearDistance(_ first : ImageDataPoint, second : ImageDataPoint) -> (Double, Double?)? {
         return (linearDistance(first.points!, vector2: second.points!), nil)
     }
     
     // compute L2 / euclidean linear distance between two vectors
-    static func linearDistance(vector1 : [Double], vector2 : [Double]) -> Double {
+    static func linearDistance(_ vector1 : [Double], vector2 : [Double]) -> Double {
 //        var distance = 0.0
 //        for i in 0..<vector1.count {
 //            distance += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i])
@@ -70,7 +70,7 @@ struct ImageDataPoint : SimilarityComparable {
     }
 
     
-    static func cartesianDistance(pointA : Double, pointB : Double, sigmaA: Double?, sigmaB : Double?) -> Double {
+    static func cartesianDistance(_ pointA : Double, pointB : Double, sigmaA: Double?, sigmaB : Double?) -> Double {
         if sigmaA == nil {
             return hypot(Double(pointA - pointB), Double(pointA - pointB))
         }
@@ -103,16 +103,16 @@ extension SimilarityComparable {
     */
     
     // utility that creates contiguous vector of numbers(the fill value) of size n
-    func vectorArray(size : Int, fill: Double) -> [Double] {
-        return [Double](count: size, repeatedValue : fill)
+    func vectorArray(_ size : Int, fill: Double) -> [Double] {
+        return [Double](repeating: fill, count: size)
     }
     
     // utility that creates 2D array numbers(the fill value) of size n
-    func multiDVectorArray(size : Int, fill: Double, dimensions: Int) -> [[Double]] {
+    func multiDVectorArray(_ size : Int, fill: Double, dimensions: Int) -> [[Double]] {
         var arrayToReturn = [[Double]]()
         for _ in 0 ..< size {
             for _ in 0 ..< dimensions {
-                arrayToReturn.append([Double](count: size, repeatedValue : fill))
+                arrayToReturn.append([Double](repeating: fill, count: size))
             }
         }
         return arrayToReturn

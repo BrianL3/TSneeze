@@ -11,5 +11,5 @@ import Foundation
 protocol SimilarityComparable {
     // Compare the similarity of two high-D data items.  Different High-D Items will have different 
     // methods of comparison.  Returns the similarity and the sigma value (how sure we are of the similarity)
-    static func compare(first: SimilarityComparable, second : SimilarityComparable) -> (Double, Double?)?
+    static func compare(_ first: SimilarityComparable, second : SimilarityComparable) -> (Double, Double?)?
 }

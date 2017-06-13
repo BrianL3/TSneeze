@@ -25,7 +25,7 @@ struct DataPoint {
         self.classification = withClassification
     }
     
-    func compare(withOtherComparator: SimilarityComparable) -> Double {
+    func compare(_ withOtherComparator: SimilarityComparable) -> Double {
         guard let pointB = withOtherComparator as? DataPoint else { print("Error: failed to compare two points"); return 0.0 }
         if(pointB.points.count == 0) { print("The compared point has 0 points."); return 0.0 }
         var pointComparisonIndex = 0
@@ -45,13 +45,13 @@ struct DataPoint {
             probabilities.append(pow(distance, 2) / pow(e, (2 * pow(sigma, 2))))
         }
         
-        let logSum = probabilities.reduce(0,combine: +)
+        let logSum = probabilities.reduce(0,+)
         
         return logSum
     }
     
     // compute L2 / euclidean linear distance between two vectors
-    func linearDistance(vector1 : [Double], vector2 : [Double]) -> Double {
+    func linearDistance(_ vector1 : [Double], vector2 : [Double]) -> Double {
         var distance = 0.0
         for i in 0..<vector1.count {
             distance += (vector1[i] - vector2[i]) * (vector1[i] - vector2[i])

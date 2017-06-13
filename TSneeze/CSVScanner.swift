@@ -11,29 +11,29 @@ import CoreGraphics
 
 class CSVScanner {
     
-    class func debug(string:String){
+    class func debug(_ string:String){
         
         print("CSVScanner: \(string)")
     }
     
-    class func decodeFromFile(file : String, returnedDataSet : ([SimilarityComparable], [Double]?) -> ()) {
+    class func decodeFromFile(_ file : String, returnedDataSet : ([SimilarityComparable], [Double]?) -> ()) {
         
     }
     
-    class func decodeImageMatricesFromFile(fileName: String, returnedSet : HighDimensionalSet -> ()) {
-        if let strBundle = NSBundle.mainBundle().pathForResource(fileName, ofType: "csv") {
+    class func decodeImageMatricesFromFile(_ fileName: String, returnedSet : (HighDimensionalSet) -> ()) {
+        if let strBundle = Bundle.main.path(forResource: fileName, ofType: "csv") {
             do {
-                let fileObject = try String(contentsOfFile: strBundle, encoding: NSUTF8StringEncoding)
-                var fileObjectCleaned = fileObject.stringByReplacingOccurrencesOfString("\r", withString: "\n")
+                let fileObject = try String(contentsOfFile: strBundle, encoding: String.Encoding.utf8)
+                var fileObjectCleaned = fileObject.replacingOccurrences(of: "\r", with: "\n")
                 
-                fileObjectCleaned = fileObjectCleaned.stringByReplacingOccurrencesOfString("\n\n", withString: "\n")
-                let objectArray = fileObjectCleaned.componentsSeparatedByString("\n")
+                fileObjectCleaned = fileObjectCleaned.replacingOccurrences(of: "\n\n", with: "\n")
+                let objectArray = fileObjectCleaned.components(separatedBy: "\n")
                 
                 var finishedImageDataPoints = [ImageDataPoint]()
                 var classifications : [String]?
                 
                 for row in objectArray {
-                    let objectColumns = row.componentsSeparatedByString(",")
+                    let objectColumns = row.components(separatedBy: ",")
                     
                     var pointsArray = [Double]()
                     var classification = 0
@@ -44,8 +44,8 @@ class CSVScanner {
                             if (classifications == nil) {
                                 classifications = [String]()
                             }
-                            classifications!.append(objectColumns[c].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()))
-                            guard let classificationNumber = Int(objectColumns[c].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())) else { debug ("52"); continue }
+                            classifications!.append(objectColumns[c].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines))
+                            guard let classificationNumber = Int(objectColumns[c].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)) else { debug ("52"); continue }
                             classification = classificationNumber
                         } else {
                             guard let number = Double(objectColumns[c]) else { debug("failed to create number"); continue }
@@ -77,18 +77,18 @@ class CSVScanner {
     
     class func decodeDataPointsFromFile(fileName theFileName:String, returnedPoints:([DataPoint])->()) {
         
-        if let strBundle = NSBundle.mainBundle().pathForResource(theFileName, ofType: "csv") {
+        if let strBundle = Bundle.main.path(forResource: theFileName, ofType: "csv") {
             //reading
             do {
-                let fileObject = try String(contentsOfFile: strBundle, encoding: NSUTF8StringEncoding)
-                var fileObjectCleaned = fileObject.stringByReplacingOccurrencesOfString("\r", withString: "\n")
+                let fileObject = try String(contentsOfFile: strBundle, encoding: String.Encoding.utf8)
+                var fileObjectCleaned = fileObject.replacingOccurrences(of: "\r", with: "\n")
                 
-                fileObjectCleaned = fileObjectCleaned.stringByReplacingOccurrencesOfString("\n\n", withString: "\n")
+                fileObjectCleaned = fileObjectCleaned.replacingOccurrences(of: "\n\n", with: "\n")
                 
-                let objectArray = fileObjectCleaned.componentsSeparatedByString("\n")
+                let objectArray = fileObjectCleaned.components(separatedBy: "\n")
                 var finishedDataPoints = [DataPoint]()
                 for row in objectArray {
-                    let objectColumns = row.componentsSeparatedByString(",")
+                    let objectColumns = row.components(separatedBy: ",")
                     
                     var columnIndex = 0
                     var tempX = 0
@@ -98,15 +98,15 @@ class CSVScanner {
                     var classification = 0
                     for column in objectColumns {
                         if (columnIndex == 16) {
-                            guard let classificationNumber = Int(column.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())) else { continue }
+                            guard let classificationNumber = Int(column.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)) else { continue }
                             classification = classificationNumber
                             continue
                         }
                         if (columnIndex % 2 == 0) {
-                            guard let x = Int(column.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())) else { continue }
+                            guard let x = Int(column.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)) else { continue }
                             tempX = x
                         } else {
-                            guard let y = Int(column.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())) else { continue }
+                            guard let y = Int(column.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)) else { continue }
                             tempY = y
                             pointsArray.append(CGPoint(x: tempX, y: tempY))
                         }
